@@ -1,0 +1,54 @@
+#OOP Assignment Task 1
+1.import mother and father attribute
+2. add two new attributes in the child constructor
+
+
+class Father():
+    def __init__(self):
+        self.name = None
+        self.fname = None
+        self.color = ' Fair'
+        self.hair_color = 'Black'
+        
+    def speak(self):
+        return "Pakistan Zindabad!"
+        
+class Mother():
+    def __init__(self):
+        self.height = '5.5 feet'
+        self.color = 'white'
+        self.weight = '100 pounds'
+        
+    def slient(self):
+        return "..."
+    
+class Child(Mother,Father):
+ def __init__(self):
+        Mother.__init__(self)
+        Father.__init__(self)
+        self.Qualification = None 
+        self.age = None
+        
+c1 = Child()
+print([i for i in dir(c1) if "__" not in i])
+
+
+# Task2: Create operator overloading
+class Scores ():
+    def __init__(self, TeamInd , TeamPak):
+        self.Team1 = TeamInd
+        self.Team2 = TeamPak
+    def __add__(self,other):
+        Team1 = self.Team1 + other.Team1 
+        Team2 = self.Team2 + other.Team2
+        Total = Scores(Team1 ,Team2)
+        return Total
+    def __str__(self):
+        return f"Team1 Score is {self.Team1}  Team2 Score is {self.Team2}"
+    
+semifinal = Scores(120,100)
+final  = Scores(190,110)
+
+Match_Total = semifinal + final
+
+print(Match_Total)
